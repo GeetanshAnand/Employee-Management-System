@@ -1,0 +1,75 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #262424; /* Black background */
+    color: #f0f7f9; /* Lavender text color */
+}
+
+/* Header styles */
+header {
+    background-color: #131313; /* Darker header background */
+    color: #dc99e6; /* Lavender text color */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #dc99e6;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Justify and left align the paragraphs */
+p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+ul li {
+    margin-bottom: 10px;
+    text-align: left; /* Left align the list items */
+}
+
+/* Footer styles */
+footer {
+    background-color: #131313; /* Darker footer background */
+    color: #dc99e6; /* Lavender text color */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Links */
+a {
+    color: #dc99e6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
