@@ -1,32 +1,26 @@
-# Start with the official Maven image to build the project
+# Use Maven to build the project
 FROM maven:3.8.4-openjdk-17 AS build
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy the pom.xml file to the working directory
-COPY pom.xml .
+# Copy pom.xml and src/ directory into the container
+COPY emproject/pom.xml /app/
+COPY emproject/src /app/src
 
-# Download the dependencies based on the pom.xml
-RUN mvn dependency:go-offline
+# Build the application
+RUN mvn clean package
 
-# Copy the rest of the application source code to the container
-COPY src ./src
-
-# Package the application (skipping tests to speed up the build)
-RUN mvn clean package -DskipTests
-
-# Use the official OpenJDK image for the runtime
+# Second stage: use OpenJDK image to run the app
 FROM openjdk:17-jdk-slim
 
-# Set the working directory for the runtime
 WORKDIR /app
 
-# Copy the built JAR file from the previous build stage
+# Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose the port on which the application will run
+# Expose the application port (8081 in your case)
 EXPOSE 8081
 
-# Set the command to run the application
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
